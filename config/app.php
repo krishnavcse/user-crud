@@ -69,8 +69,6 @@ return [
 
     'timezone' => 'UTC',
 
-    'log’=>’errorlog’,
-
     /*
     |--------------------------------------------------------------------------
     | Application Locale Configuration
