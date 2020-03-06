@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\User;
 use Illuminate\Http\Request;
   
-class UserController extends Controller
+class ATGController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -39,9 +39,9 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'name' => 'required|unique:users,name',
-            'email' => 'required|email|unique:users,email',
-            'pincode' => 'required|numeric|digits:6',
+            'name' => 'required',
+            'email' => 'required|email',
+            'pincode' => 'required|numeric|digits:6|unique:users,pincode',
         ]);
   
         User::create($request->toArray());
@@ -83,9 +83,9 @@ class UserController extends Controller
     {
         $userId = reset($request->route()->parameters)->id;
         $request->validate([
-            'name' => 'required|unique:users,name,' . $userId,
-            'email' => 'required|email|unique:users,email,' . $userId,
-            'pincode' => 'required|numeric|digits:6',
+            'name' => 'required',
+            'email' => 'required|email',
+            'pincode' => 'required|numeric|digits:6|unique:users,pincode,' . $userId,
         ]);
 
         $user->update($request->toArray());

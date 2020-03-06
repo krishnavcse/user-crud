@@ -11,6 +11,6 @@
 |
 */
 
-Route::get('/', 'UserController@index');
+Route::get('/', 'ATGController@index');
 
-Route::resource('users','UserController');
+Route::resource('users','ATGController');
